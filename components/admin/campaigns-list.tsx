@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { format } from "date-fns"
 import Link from "next/link"
-import { Edit, Trash2, Package } from 'lucide-react'
+import { Edit, Trash2, Package, Eye } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import {
   Table,
@@ -131,6 +131,16 @@ export function CampaignsList({ campaigns: initialCampaigns }: CampaignsListProp
                   <TableCell>{getStatusBadge(campaign.status)}</TableCell>
                   <TableCell className="text-right">
                     <div className="flex justify-end gap-2">
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                      >
+                        <Link href={`/admin/campaigns/${campaign.id}`}>
+                          <Eye className="mr-2 h-4 w-4" />
+                          View
+                        </Link>
+                      </Button>
                       <Button
                         variant="outline"
                         size="sm"
